@@ -1,0 +1,86 @@
+https://dbdiagram.io/d
+
+
+
+table person_table {
+  personId bigint [pk, not null, unique] 
+  country varchar 
+  age float 
+  gender varchar
+  admissionId varchar
+  occupation varchar
+  }
+
+table visa_table {
+  visaID int [pk] 
+  Name varchar
+}
+
+table mode_table {
+  modeID int [pk] 
+  Name varchar
+}
+
+table airport_table {
+  airportID varchar [pk]
+  name varchar
+  city varchar
+  state varchar
+  iataCode varchar
+}
+
+table country_table {
+  countryID int [pk]
+  Name varchar
+}
+
+table time_table {
+  arrivalDate datetime [pk]
+  year int
+  month int
+  day int
+  hour int
+  week int
+  weekday int
+}
+
+table port_table {
+  portID varchar
+  City varchar
+  state varchar
+}
+
+
+Table immigration_fact_table {
+  personID bitint
+  departure_date datetime
+  arrivalDate datetime
+  visaTypeID int
+  portID int
+  airlineName varchar
+  flightNumber varchar
+  admissionNumber varchar
+  modeID int
+}
+
+
+
+
+
+
+Ref: "port_table"."City" - "airport_table"."city"
+Ref: "port_table"."state" - "airport_table"."state"
+
+Ref: "person_table"."country" < "country_table"."countryID"
+
+Ref: "immigration_fact_table"."personID" > "person_table"."personId"
+
+Ref: "time_table"."arrivalDate" < "immigration_fact_table"."arrivalDate"
+
+
+
+Ref: "immigration_fact_table"."visaTypeID" > "visa_table"."visaID"
+
+Ref: "immigration_fact_table"."portID" < "port_table"."portID"
+
+Ref: "immigration_fact_table"."modeID" < "mode_table"."modeID"

@@ -1,0 +1,60 @@
+immigration_fact_table
+root
+ |-- personID: double (nullable = true)
+ |-- departure_date: timestamp (nullable = true)
+ |-- arrival_date: timestamp (nullable = true)
+ |-- visaTypeID: double (nullable = true)
+ |-- portID: string (nullable = true)
+ |-- airlineName: string (nullable = true)
+ |-- flightNumber: string (nullable = true)
+ |-- admissionNumber: double (nullable = true)
+ |-- modeID: double (nullable = true)
+
+port_table
+root
+ |-- portID: string (nullable = true)
+ |-- City: string (nullable = true)
+ |-- State: string (nullable = true)
+
+time_table
+root
+ |-- arrivalDate: timestamp (nullable = true)
+ |-- year: integer (nullable = true)
+ |-- month: integer (nullable = true)
+ |-- day: integer (nullable = true)
+ |-- hour: integer (nullable = true)
+ |-- week: integer (nullable = true)
+ |-- weekDay: integer (nullable = true)
+
+mode_table
+root
+ |-- modeID: string (nullable = true)
+ |-- Name: string (nullable = true)
+
+country_table
+root
+ |-- countryID: string (nullable = true)
+ |-- Name: string (nullable = true)
+
+visa_table
+root
+ |-- visaID: string (nullable = true)
+ |-- Name: string (nullable = true)
+
+airport_table
+root
+ |-- airportID: string (nullable = true)
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- state: string (nullable = true)
+ |-- iataCode: string (nullable = true)
+
+person_table
+root
+ |-- personID: double (nullable = true)
+ |-- country: double (nullable = true)
+ |-- age: double (nullable = true)
+ |-- gender: string (nullable = true)
+ |-- admissionId: double (nullable = true)
+ |-- occupation: string (nullable = true)
+
